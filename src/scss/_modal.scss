@@ -1,0 +1,75 @@
+.modal-photo {
+  background-color: rgba(0, 0, 0, 0.6);
+  & .modal-dialog {
+    display: flex;
+    justify-content: center;
+    max-width: 80%;
+    & .modal-content {
+      background-color: $text-color;
+      border-radius: 20px;
+      border: none;
+      width: fit-content;
+      margin: 40px 0;
+    }
+    & .modal-header {
+      border: none;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      min-width: 700px;
+      & .modal-title {
+        font-size: 35px;
+        color: $primary-color;
+        font-weight: bold;
+        font-family: "Rampart One", sans-serif;
+      }
+      & button {
+        font-size: 30px;
+        background-color: $primary-color;
+        margin: 0px 50px;
+        position: absolute;
+        right: 0;
+      }
+    }
+    & .modal-body {
+      background-color: $text-color;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      & .Picture {
+        background: $secondary-color;
+        padding: 10px;
+        position: relative;
+        display: inline-block;
+        margin: 20px 40px;
+        border-radius: 20px;
+        position: relative;
+        & img {
+          height: 16rem;
+          border-radius: 20px;
+        }
+        & h3 {
+          padding: 8px;
+          text-align: center;
+          width: 100%;
+          margin: 5px;
+          font-family: "Rampart One", sans-serif;
+        }
+        & .download-btn {
+          border: none;
+          background-color: $secondtext-color;
+          height: 40px;
+          width: 40px;
+          position: absolute;
+          top: 0;
+          right: 10px;
+          border-radius: 100%;
+          & .download-icon {
+            font-size: 30px;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}

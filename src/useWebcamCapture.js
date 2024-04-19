@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-export const useWebcamCapture = (stickerImg, title) => {
+export const useWebcamCapture = (stickerImg, title, setPictures) => {
   const [videoRef, setVideoRef] = useState();
   const [canvasRef, setCanvasRef] = useState();
-  const [picture, setPicture] = useState();
+  const [filter, setFilter] = useState();
 
   const onVideoRef = useCallback((node) => {
     setVideoRef(node);
@@ -97,15 +97,42 @@ export const useWebcamCapture = (stickerImg, title) => {
     }
   }, [canvasRef]);
 
-  const onCapture = useCallback(
-    (ev) => {
-      if (canvasRef) {
-        const data = canvasRef.toDataURL("image/png");
-        setPicture({ dataUri: data, title });
-      }
-    },
-    [canvasRef, title]
-  );
+  // to set filter to provided style
+  const onFilterBtnRef = (style) => () => {
+    setFilter(style);
+  };
 
-  return [onVideoRef, onCanvasRef, onCapture, picture];
+  // apply filter to canvas
+  useEffect(() => {
+    if (canvasRef && filter) {
+      canvasRef.style.filter = filter;
+    }
+  }, [filter, canvasRef]);
+
+  // I have created a temporary canvas element to set the filter
+  //for it and be able to convert the temporary canvas to a
+  //Data url to show the pictures with the filter applied
+  const onCapture = useCallback(() => {
+    if (canvasRef) {
+      const ctx = canvasRef.getContext("2d");
+      const width = canvasRef.width;
+      const height = canvasRef.height;
+
+      const tempCanvas = document.createElement("canvas");
+      const tempCtx = tempCanvas.getContext("2d");
+      tempCanvas.width = width;
+      tempCanvas.height = height;
+
+      tempCtx.filter = filter || "none";
+      tempCtx.drawImage(canvasRef, 0, 0, width, height);
+
+      const data = tempCanvas.toDataURL("image/png");
+      setPictures((prevPictures) => [
+        ...prevPictures,
+        { dataUri: data, title },
+      ]);
+    }
+  }, [canvasRef, title, setPictures, filter]);
+
+  return [onVideoRef, onCanvasRef, onCapture, onFilterBtnRef];
 };

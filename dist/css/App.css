@@ -1,0 +1,303 @@
+.modal-photo {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-photo .modal-dialog {
+  display: flex;
+  justify-content: center;
+  max-width: 80%;
+}
+.modal-photo .modal-dialog .modal-content {
+  background-color: #184c34;
+  border-radius: 20px;
+  border: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 40px 0;
+}
+.modal-photo .modal-dialog .modal-header {
+  border: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-width: 700px;
+}
+.modal-photo .modal-dialog .modal-header .modal-title {
+  font-size: 35px;
+  color: #eff4ed;
+  font-weight: bold;
+  font-family: "Rampart One", sans-serif;
+}
+.modal-photo .modal-dialog .modal-header button {
+  font-size: 30px;
+  background-color: #eff4ed;
+  margin: 0px 50px;
+  position: absolute;
+  right: 0;
+}
+.modal-photo .modal-dialog .modal-body {
+  background-color: #184c34;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.modal-photo .modal-dialog .modal-body .Picture {
+  background: #cad1c9;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
+  margin: 20px 40px;
+  border-radius: 20px;
+  position: relative;
+}
+.modal-photo .modal-dialog .modal-body .Picture img {
+  height: 16rem;
+  border-radius: 20px;
+}
+.modal-photo .modal-dialog .modal-body .Picture h3 {
+  padding: 8px;
+  text-align: center;
+  width: 100%;
+  margin: 5px;
+  font-family: "Rampart One", sans-serif;
+}
+.modal-photo .modal-dialog .modal-body .Picture .download-btn {
+  border: none;
+  background-color: #0ebd60;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  border-radius: 100%;
+}
+.modal-photo .modal-dialog .modal-body .Picture .download-btn .download-icon {
+  font-size: 30px;
+  color: #000000;
+}
+
+body {
+  background: #ffffff;
+  color: #184c34;
+  font-family: "sans-serif";
+}
+body .App {
+  padding: 10px;
+  background: #eff4ed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+}
+body .App nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  margin: 10px 10px;
+}
+body .App nav ul {
+  display: flex;
+  justify-content: end;
+  margin: 0px 40px;
+}
+body .App nav ul li {
+  list-style-type: none;
+}
+body .App nav ul li a {
+  color: #0ebd60;
+  margin-left: 50px;
+  font-size: 20px;
+  text-decoration: none;
+  font-family: "Rampart One", sans-serif;
+}
+body .App .Header {
+  margin: 10px 10px 30px 10px;
+}
+body .App .Header h1 {
+  color: #0ebd60;
+  cursor: pointer;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: "Rampart One", sans-serif;
+}
+body .App .Header p {
+  font-size: 20px;
+  font-family: "Potta One", system-ui;
+}
+body .App main {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+body .App main section {
+  margin-right: 30px;
+}
+body .App main section span {
+  color: #0ebd60;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: "Potta One", system-ui;
+}
+body .App main .colOne {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+body .App main .colOne .GalleryName {
+  font-size: 22px;
+}
+body .App main .colOne .GalleryName input {
+  display: block;
+  width: 80%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #cad1c9;
+  border: 0.2px solid #ffffff;
+  color: #184c34;
+  font-family: "Rampart One", sans-serif;
+  text-align: center;
+}
+body .App main .colOne .Stickers {
+  font-size: 22px;
+}
+body .App main .colOne .Stickers .availableStickers-container .availableStickers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #cad1c9;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+body .App main .colOne .Stickers .availableStickers-container .availableStickers button {
+  display: block;
+  background: none;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 12px 12px;
+  padding: 10px;
+  border: none;
+  -webkit-box-reflect: below -30px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.6, transparent), to(rgba(255, 255, 255, 0.5)));
+  -webkit-transform-origin: 50% 100%;
+  transition: transform 0.15s ease-in-out;
+}
+body .App main .colOne .Stickers .availableStickers-container .availableStickers button img {
+  height: 35px;
+  height: 35px;
+}
+body .App main .colOne .Stickers .availableStickers-container .availableStickers button:hover {
+  transform: scale(1.5);
+  margin: 20 0px;
+}
+body .App main .colOne .Stickers .availableStickers-container .availableStickers .btn-remove {
+  background-color: #cad1c9;
+  padding: 5px;
+  border-radius: 20px;
+  border: none;
+  font-size: 30px;
+}
+body .App main .colOne .Gallery {
+  font-size: 22px;
+  max-width: 100%;
+  padding: 20px;
+}
+body .App main .colOne .Gallery .photo-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+body .App main .colOne .Gallery .photo-container .folder-icon {
+  font-size: 100px;
+}
+body .App main .colOne .Gallery .photo-container .numberOfPhoto {
+  background-color: #0ebd60;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 105px;
+}
+body .App main .colOne .Gallery .photo-container .Picture {
+  display: none;
+}
+body .App main .colOne .Gallery .photo-container.show-photos {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body .App main .colOne .Gallery .photo-container.show-photos .Picture {
+  display: block;
+}
+body .App main .colTwo {
+  margin-top: 50px;
+  padding: 0px 50px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+body .App main .colTwo .Main {
+  background: #cad1c9;
+  font-size: 2rem;
+  width: 90%;
+  border-radius: 20px;
+  padding: 30px 20px;
+  margin-bottom: 0px;
+}
+body .App main .colTwo .Main p {
+  margin-bottom: 40px;
+  text-align: center;
+}
+body .App main .colTwo .Main video {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+body .App main .colTwo .Main canvas {
+  width: 100%;
+  height: auto;
+}
+body .App main .colTwo .Main .btn-filters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+body .App main .colTwo .Main .btn-filters-container .btn-filters {
+  border-radius: 100%;
+  height: 60px;
+  width: 60px;
+  margin: 0px 20px;
+  -webkit-box-reflect: below -30px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.6, transparent), to(rgba(255, 255, 255, 0.5)));
+  -webkit-transform-origin: 50% 100%;
+  transition: transform 0.15s ease-in-out;
+}
+body .App main .colTwo .Main .btn-filters-container .btn-filters:hover {
+  transform: scale(1.3);
+  margin: 20 0px;
+}
+
+@keyframes vibration {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-5px, -3px);
+  }
+  50% {
+    transform: translate(5px, 3px);
+  }
+  75% {
+    transform: translate(-5px, -3px);
+  }
+}
+.vibrate {
+  animation: vibration 0.5s ease-in-out;
+}/*# sourceMappingURL=App.css.map */
