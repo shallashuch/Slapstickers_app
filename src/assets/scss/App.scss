@@ -1,0 +1,86 @@
+@import "./variables";
+@import "./mixin";
+@import "./components/savedphotomodal";
+@import "./components/photocamera";
+@import "./components/givename";
+@import "./components/stickers";
+@import "./components/gallery";
+@import "./components/lastphotomodal";
+
+body {
+  background: $background-color;
+  color: $text-color;
+  font-family: "Montserrat", sans-serif;
+  & .App {
+    padding: 10px;
+    background: $primary-color;
+    // width: 100vw;
+    height: 100vh;
+    // overflow: hidden;
+    // margin: auto;
+    position: relative;
+    & nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      margin: 10px 10px;
+      & ul {
+        display: flex;
+        justify-content: end;
+        margin: 0px 40px;
+        & li {
+          list-style-type: none;
+          & a {
+            color: $secondtext-color;
+            margin-left: 50px;
+            font-size: 20px;
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif;
+          }
+        }
+      }
+    }
+    & .Header {
+      margin: 10px 10px 30px 10px;
+      & h1 {
+        color: $secondtext-color;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        font-family: "Rampart One", sans-serif;
+      }
+      & p {
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+      }
+    }
+    & main {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      position: relative;
+    }
+  }
+}
+
+@keyframes vibration {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-5px, -3px);
+  }
+  50% {
+    transform: translate(5px, 3px);
+  }
+  75% {
+    transform: translate(-5px, -3px);
+  }
+}
+
+.vibrate {
+  animation: vibration 0.5s ease-in-out;
+}

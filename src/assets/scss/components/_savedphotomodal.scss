@@ -21,7 +21,7 @@
         font-size: 35px;
         color: $primary-color;
         font-weight: bold;
-        font-family: "Rampart One", sans-serif;
+        font-family: "Montserrat", sans-serif;
       }
       & button {
         font-size: 30px;
@@ -69,6 +69,9 @@
             color: #000000;
           }
         }
+      }
+      .no-photo {
+        color: white;
       }
     }
   }

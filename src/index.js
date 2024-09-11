@@ -5,7 +5,7 @@ import { ThemeProvider } from "react-jss";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { theme } from "./theme";
+import { theme } from "./constants/theme";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

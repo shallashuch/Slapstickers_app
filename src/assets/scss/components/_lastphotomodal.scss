@@ -1,0 +1,56 @@
+.last-photo-modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  & .modal-dialog {
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+    & .modal-content {
+      background-color: $text-color;
+      border-radius: 20px;
+      border: none;
+      width: fit-content;
+      margin: 40px 0;
+    }
+    & .modal-header {
+      border: none;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      min-width: 700px;
+      & .modal-title {
+        font-size: 35px;
+        color: $primary-color;
+        font-weight: bold;
+        font-family: "Montserrat", sans-serif;
+      }
+      & button {
+        font-size: 30px;
+        background-color: $primary-color;
+        margin: 0px 50px;
+        position: absolute;
+        right: 0;
+      }
+    }
+    & .modal-body {
+      background-color: $text-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      & .modal-img {
+        height: 300px;
+        margin-bottom: 40px;
+        .photo-captured {
+          height: 100%;
+          width: auto;
+        }
+      }
+      & .modal-buttons {
+        button {
+          margin: 0 10px;
+          font-size: 20px;
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}

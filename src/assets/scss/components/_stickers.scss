@@ -1,0 +1,39 @@
+.Stickers {
+  font-size: 22px;
+  & .availableStickers-container {
+    & .availableStickers {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      background-color: $secondary-color;
+      padding: 10px;
+      border-radius: 20px;
+      margin-top: 10px;
+      & button {
+        display: block;
+        background: none;
+        cursor: pointer;
+        border-radius: 20px;
+        margin: 12px 12px;
+        padding: 10px;
+        border: none;
+        @include animationIcon;
+        & img {
+          height: 35px;
+          height: 35px;
+        }
+      }
+      & button:hover {
+        transform: scale(1.5);
+        margin: 20 0px;
+      }
+      & .btn-remove {
+        background-color: $secondary-color;
+        padding: 5px;
+        border-radius: 20px;
+        border: none;
+        font-size: 30px;
+      }
+    }
+  }
+}
