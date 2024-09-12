@@ -35,17 +35,16 @@ function Stickers(props) {
 
   return (
     <div className="Stickers">
-      <p>and select your sticker!!</p>
       <div className="availableStickers-container">
         <div className="availableStickers">
+          <button className="btn-remove" onClick={props.removeSticker}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
           {stickers.map((sticker, index) => (
             <button key={index} onClick={() => props.setSticker(sticker)}>
               <img src={sticker.url} alt={`Sticker ${index + 1}`} />
             </button>
           ))}
-          <button className="btn-remove" onClick={props.removeSticker}>
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
         </div>
       </div>
     </div>

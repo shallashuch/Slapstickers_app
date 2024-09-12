@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Readme from "./pages/Readme";
 import Homepage from "./pages/Homepage";
+import MyAlbum from "./pages/MyAlbum";
 import Header from "./components/Header";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Homepage} />
           <Route path="/readme" exact component={Readme} />
+          <Route path="/myalbum" exact component={MyAlbum} />
         </Switch>
       </Router>
     </div>

@@ -37,14 +37,6 @@ function Homepage() {
   );
 
   // Save the photo and add it to the gallery
-  // const savePhoto = () => {
-  //   setPictures((prevPictures) =>
-  //     Array.isArray(prevPictures)
-  //       ? [...prevPictures, latestPicture]
-  //       : [latestPicture]
-  //   );
-  //   setShowLatestModal(false);
-  // };
   const savePhoto = () => {
     if (latestPicture) {
       setPictures((prevPictures) => [
@@ -78,7 +70,12 @@ function Homepage() {
 
   return (
     <main>
-      <h1>Slap yourself..</h1>
+      <h1>
+        Try to slap yourself..
+        <br />
+        ..and select your sticker!!
+      </h1>
+
       <Photocamera
         handleVideoRef={handleVideoRef}
         handleCanvasRef={handleCanvasRef}
@@ -103,8 +100,6 @@ function Homepage() {
         modalShow={modalShow}
         toggleModal={toggleModal}
         downloadImage={downloadImage}
-        // title={title}
-        // setTitle={setTitle}
       />
       <SvgFilters />
     </main>

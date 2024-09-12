@@ -1,7 +1,7 @@
 .Gallery {
   position: absolute;
   right: 30px;
-  top: -60px;
+  top: 0px;
   font-size: 22px;
   max-width: 100%;
   padding: 20px;
@@ -11,8 +11,19 @@
     display: flex;
     justify-content: center;
     position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
     & .folder-icon {
       font-size: 100px;
+      color: black;
+      transition: transform 0.3s ease, color 0.3s ease;
+      &:hover {
+        color: lighten(blue, 10%);
+      }
     }
     & .numberOfPhoto {
       background-color: $secondtext-color;
@@ -23,6 +34,13 @@
       position: absolute;
       top: 0;
       left: 80px;
+      line-height: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      &:hover {
+        transform: scale(1.2);
+        background-color: darken(pink, 10%);
+      }
     }
     & .Picture {
       display: none;
@@ -33,6 +51,20 @@
     width: fit-content;
     & .Picture {
       display: block;
+    }
+  }
+}
+
+@include media-1024 {
+  .Gallery {
+    font-size: 20px;
+    & .photo-container {
+      & .folder-icon {
+        font-size: 70px;
+      }
+      & .numberOfPhoto {
+        left: 50px;
+      }
     }
   }
 }

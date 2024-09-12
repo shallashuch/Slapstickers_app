@@ -14,17 +14,15 @@ body {
   & .App {
     padding: 10px;
     background: $primary-color;
-    // width: 100vw;
-    height: 100vh;
-    // overflow: hidden;
-    // margin: auto;
+    height: 100%;
+    overflow: hidden;
     position: relative;
     & nav {
       position: absolute;
       top: 0;
       right: 0;
       width: 100vw;
-      margin: 10px 10px;
+      margin: 10px 0px;
       & ul {
         display: flex;
         justify-content: end;
@@ -42,25 +40,30 @@ body {
       }
     }
     & .Header {
-      margin: 10px 10px 30px 10px;
       & h1 {
         color: $secondtext-color;
-        font-size: 2rem;
-        margin-bottom: 20px;
+        font-size: 25px;
         font-family: "Rampart One", sans-serif;
+        text-align: center;
       }
       & p {
-        font-size: 20px;
+        font-size: 18px;
         font-family: "Montserrat", sans-serif;
+        margin: 20px 10px;
       }
     }
     & main {
-      margin: 10px;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      position: relative;
       align-items: center;
-      position: relative;
-      position: relative;
+      height: 100vh;
+      & h1 {
+        font-size: 20px;
+        position: absolute;
+        top: 100px;
+        left: 80px;
+      }
     }
   }
 }
@@ -83,4 +86,67 @@ body {
 
 .vibrate {
   animation: vibration 0.5s ease-in-out;
+}
+
+@include media-1024 {
+  body {
+    & .App {
+      & nav {
+        & ul {
+          & li {
+            & a {
+              font-size: 17px;
+            }
+          }
+        }
+      }
+      & .Header {
+        & h1 {
+          font-size: 20px;
+        }
+        & p {
+          font-size: 17px;
+        }
+      }
+      & main {
+        align-items: start;
+        & h1 {
+          font-size: 17px;
+          top: 40px;
+          left: 0px;
+        }
+      }
+    }
+  }
+}
+
+@include media-878 {
+  body {
+    & .App {
+      & nav {
+        & ul {
+          margin: 0px 10px;
+          & li {
+            & a {
+              font-size: 14px;
+              margin-left: 30px;
+            }
+          }
+        }
+      }
+      & .Header {
+        & h1 {
+          font-size: 18px;
+        }
+        & p {
+          font-size: 15px;
+        }
+      }
+      & main {
+        & h1 {
+          font-size: 15px;
+        }
+      }
+    }
+  }
 }

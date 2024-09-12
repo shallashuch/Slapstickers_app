@@ -34,7 +34,7 @@ function Gallery({ pictures, modalShow, toggleModal, downloadImage }) {
           centered
         >
           <Modal.Header closeButton>
-            <Modal.Title>Your Photo Gallery</Modal.Title>
+            <Modal.Title>📸 Your Photo Gallery 📸</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {pictures.length > 0 ? (
@@ -72,9 +72,10 @@ function Gallery({ pictures, modalShow, toggleModal, downloadImage }) {
                 </div>
               ))
             ) : (
-              <p className="no-photo">
-                You have not saved photo yet, go to take one!
-              </p>
+              <div className="no-photo">
+                <p>You still haven't saved a photo</p>
+                <p>Go take one now!!</p>
+              </div>
             )}
           </Modal.Body>
         </Modal>

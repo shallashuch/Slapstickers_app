@@ -6,12 +6,6 @@ function Header() {
   return (
     <div className="Header">
       <header className="header-container">
-        <h1>SlapSticker</h1>
-        <p>
-          Have you ever said something so dumb, you just wanted to slap
-          yourself? Well now you can!
-        </p>
-
         {/* NAVBAR */}
         <nav>
           <ul>
@@ -19,10 +13,18 @@ function Header() {
               <Link to="/">Home</Link>
             </li>
             <li>
+              <Link to="/myalbum">My Album</Link>
+            </li>
+            <li>
               <Link to="/readme">ReadMe</Link>
             </li>
           </ul>
         </nav>
+        <h1>SlapSticker</h1>
+        <p>
+          Have you ever said something so dumb, you just wanted to slap
+          yourself? Well now you can!
+        </p>
       </header>
     </div>
   );

@@ -10,3 +10,63 @@
   -webkit-transform-origin: 50% 100%;
   transition: transform 0.15s ease-in-out;
 }
+
+@mixin Modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin ModalHeader {
+  border: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+@mixin ModalTitle {
+  font-size: 27px;
+  color: $primary-color;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+@mixin ModalButton {
+  font-size: 20px;
+  background-color: $primary-color;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  right: 30px;
+}
+
+@mixin ModalBody {
+  background-color: $text-color;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin media-1425 {
+  @media (max-width: 1425px) {
+    @content;
+  }
+}
+
+@mixin media-1024 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin media-878 {
+  @media (max-width: 878px) {
+    @content;
+  }
+}
+
+// @mixin media-mobile {
+//   @media (max-width: 375px) {
+//     @content;
+//   }
+// }

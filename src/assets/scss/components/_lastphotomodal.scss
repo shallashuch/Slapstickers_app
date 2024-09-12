@@ -1,44 +1,35 @@
 .last-photo-modal {
-  background-color: rgba(0, 0, 0, 0.6);
+  @include Modal;
   & .modal-dialog {
     display: flex;
     justify-content: center;
     max-width: 50%;
+    height: 80vh;
     & .modal-content {
       background-color: $text-color;
-      border-radius: 20px;
       border: none;
-      width: fit-content;
-      margin: 40px 0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
     & .modal-header {
-      border: none;
-      display: flex;
-      justify-content: center;
-      position: relative;
-      min-width: 700px;
+      @include ModalHeader;
       & .modal-title {
-        font-size: 35px;
-        color: $primary-color;
-        font-weight: bold;
-        font-family: "Montserrat", sans-serif;
+        @include ModalTitle;
       }
       & button {
-        font-size: 30px;
-        background-color: $primary-color;
-        margin: 0px 50px;
-        position: absolute;
-        right: 0;
+        @include ModalButton;
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
       }
     }
     & .modal-body {
-      background-color: $text-color;
-      display: flex;
+      @include ModalBody;
       flex-direction: column;
       align-items: center;
+      padding-top: 0;
       & .modal-img {
         height: 300px;
-        margin-bottom: 40px;
+        margin-bottom: 35px;
         .photo-captured {
           height: 100%;
           width: auto;
@@ -46,9 +37,83 @@
       }
       & .modal-buttons {
         button {
-          margin: 0 10px;
-          font-size: 20px;
-          background-color: $primary-color;
+          margin: 0 20px 20px;
+          font-size: 18px;
+          padding: 10px 20px;
+          border-radius: 10px;
+          background-color: #eff4ed;
+          border: 0.2px solid $background-color;
+          color: $text-color;
+          font-family: "Montserrat", sans-serif;
+          text-align: center;
+          font-weight: 700;
+          transition: all 0.3s ease;
+          box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1),
+            0 2px 4px rgba(0, 0, 0, 0.2);
+          &:hover {
+            background-color: darken(#eff4ed, 5%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+          }
+          &:active {
+            transform: translateY(2px);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-1024 {
+  .last-photo-modal {
+    & .modal-dialog {
+      max-width: 50%;
+      & .modal-header {
+        & .modal-title {
+          font-size: 22px;
+        }
+        & button {
+          font-size: 15px;
+        }
+      }
+      & .modal-body {
+        & .modal-img {
+          height: 200px;
+        }
+        & .modal-buttons {
+          button {
+            font-size: 15px;
+            padding: 8px 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-878 {
+  .last-photo-modal {
+    & .modal-dialog {
+      max-width: 70%;
+      & .modal-header {
+        & .modal-title {
+          font-size: 18px;
+        }
+        & button {
+          font-size: 12px;
+          padding: 7px 10px;
+        }
+      }
+      & .modal-body {
+        & .modal-img {
+          height: 150px;
+        }
+        & .modal-buttons {
+          button {
+            font-size: 12px;
+            padding: 5px 10px;
+          }
         }
       }
     }
