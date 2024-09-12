@@ -103,6 +103,33 @@
   font-size: 20px;
   color: #000000;
 }
+.modal-photo .modal-dialog .modal-body .download-selected-btn {
+  position: absolute;
+  left: 30px;
+  top: -60px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal-photo .modal-dialog .modal-body .download-selected-btn:hover {
+  background-color: #45a049;
+  box-shadow: 0 6px 15px rgba(0, 255, 0, 0.4);
+  transform: translateY(-3px);
+}
+.modal-photo .modal-dialog .modal-body .download-selected-btn:active {
+  transform: scale(0.95);
+}
+.modal-photo .modal-dialog .modal-body .download-selected-btn .download-icon {
+  margin-left: 10px;
+  font-size: 15px;
+}
 .modal-photo .modal-dialog .modal-body .no-photo {
   color: white;
   text-align: center;
@@ -120,6 +147,66 @@
 .modal-photo .modal-dialog .modal-body .no-photo:hover {
   transform: scale(1.1);
   opacity: 0.9;
+}
+
+/* Contenitore personalizzato per il checkbox */
+input[type=checkbox] {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #f1f1f1;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  /* Effetto al passaggio del mouse */
+  /* Aggiungi un effetto "focus" quando selezionato */
+  /* Aggiungi un'animazione di riempimento quando viene selezionato */
+  /* Animazione di riempimento */
+}
+input[type=checkbox]:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+input[type=checkbox]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 5px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: all 0.3s ease;
+}
+input[type=checkbox]:hover {
+  border-color: #4caf50;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); /* Effetto glow */
+}
+input[type=checkbox]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.6); /* Effetto glow focus */
+}
+input[type=checkbox]:checked {
+  animation: fillCheckbox 0.4s forwards ease-in-out;
+}
+@keyframes fillCheckbox {
+  0% {
+    background-color: transparent;
+    border-color: #ddd;
+  }
+  100% {
+    background-color: #4caf50;
+    border-color: #4caf50;
+  }
 }
 
 @keyframes fadeIn {

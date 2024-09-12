@@ -13,9 +13,6 @@ function Header() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/myalbum">My Album</Link>
-            </li>
-            <li>
               <Link to="/readme">ReadMe</Link>
             </li>
           </ul>
