@@ -11,7 +11,9 @@ function CapturedPhotoModal(props) {
       className="last-photo-modal"
     >
       <Modal.Header closeButton>
-        <Modal.Title>✨ Check yourselft out: ✨</Modal.Title>
+        <Modal.Title>
+          ✨ <span>Check yourselft out</span> ✨
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <GiveAName title={props.title} setTitle={props.setTitle} />

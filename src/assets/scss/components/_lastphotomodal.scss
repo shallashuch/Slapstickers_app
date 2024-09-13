@@ -6,19 +6,21 @@
     max-width: 50%;
     height: 80vh;
     & .modal-content {
-      background-color: $text-color;
+      background-color: $azzurro;
       border: none;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
     & .modal-header {
       @include ModalHeader;
       & .modal-title {
-        @include ModalTitle;
+        & span {
+          @include ModalTitle;
+        }
       }
       & button {
         @include ModalButton;
         &:hover {
-          background-color: darken($primary-color, 10%);
+          background-color: $secondary-color;
         }
       }
     }
@@ -41,17 +43,17 @@
           font-size: 18px;
           padding: 10px 20px;
           border-radius: 10px;
-          background-color: #eff4ed;
-          border: 0.2px solid $background-color;
-          color: $text-color;
-          font-family: "Montserrat", sans-serif;
+          background-color: $viola;
+          border: 0.2px solid $secondtext-color;
+          color: $background-color;
           text-align: center;
           font-weight: 700;
           transition: all 0.3s ease;
           box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1),
             0 2px 4px rgba(0, 0, 0, 0.2);
           &:hover {
-            background-color: darken(#eff4ed, 5%);
+            background-color: $rosso;
+            color: $background-color;
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
           }
@@ -92,7 +94,7 @@
   }
 }
 
-@include media-878 {
+@include media-765 {
   .last-photo-modal {
     & .modal-dialog {
       max-width: 70%;

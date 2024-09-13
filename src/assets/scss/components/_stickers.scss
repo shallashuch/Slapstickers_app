@@ -3,7 +3,7 @@
     & .availableStickers {
       display: flex;
       flex-wrap: wrap;
-      align-items: end;
+      align-items: flex-end;
       width: 100%;
       background-color: $secondary-color;
       padding: 10px;
@@ -32,6 +32,21 @@
         border-radius: 20px;
         border: none;
         font-size: 30px;
+      }
+    }
+  }
+}
+
+@include media-1300 {
+  .Stickers {
+    & .availableStickers-container {
+      margin-bottom: 40px;
+      & .availableStickers {
+        & button {
+          & img {
+            height: 40px;
+          }
+        }
       }
     }
   }

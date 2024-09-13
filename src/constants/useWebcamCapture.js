@@ -15,11 +15,11 @@ export const useWebcamCapture = (
 
   const onVideoRef = useCallback((node) => {
     setVideoRef(node);
-  });
+  }, []);
 
   const onCanvasRef = useCallback((node) => {
     setCanvasRef(node);
-  });
+  }, []);
 
   const [initialized, setInitialized] = useState(false);
 
@@ -69,18 +69,6 @@ export const useWebcamCapture = (
         const height = canvasRef.getAttribute("height");
         ctx.drawImage(videoRef, 0, 0, width, height);
 
-        // if (stickerImg) {
-        //   const bb = canvasRef.getBoundingClientRect();
-        //   const x = ((mousePos.current.x - bb.left) / bb.width) * width;
-        //   const y = ((mousePos.current.y - bb.top) / bb.height) * height;
-        //   ctx.drawImage(
-        //     stickerImg,
-        //     x - width * 0.2,
-        //     y - width * 0.2,
-        //     width * 0.4,
-        //     width * 0.4
-        //   );
-        // }
         if (stickerImg) {
           if (isStickerLocked && stickerPos) {
             ctx.drawImage(
@@ -150,36 +138,6 @@ export const useWebcamCapture = (
     }
   }, [canvasRef, stickerImg, isStickerLocked]);
 
-  // useEffect(() => {
-  //   if (canvasRef) {
-  //     const onClick = (ev) => {
-  //       if (stickerImg) {
-  //         const bb = canvasRef.getBoundingClientRect();
-  //         const x = ((ev.clientX - bb.left) / bb.width) * canvasRef.width;
-  //         const y = ((ev.clientY - bb.top) / bb.height) * canvasRef.height;
-  //       }
-  //     };
-  //     canvasRef.addEventListener("click", onClick);
-  //     return () => {
-  //       canvasRef.removeEventListener("click", onClick);
-  //     };
-  //   }
-  // }, [canvasRef, stickerImg]);
-
-  // useEffect(() => {
-  //   if (canvasRef) {
-  //     const onMouseMove = (ev) => {
-  //       mousePos.current = { x: ev.clientX, y: ev.clientY };
-  //     };
-  //     canvasRef.addEventListener("mousemove", onMouseMove);
-  //     canvasRef.addEventListener("mousedown", onMouseMove);
-  //     return () => {
-  //       canvasRef.removeEventListener("mousemove", onMouseMove);
-  //       canvasRef.removeEventListener("mousedown", onMouseMove);
-  //     };
-  //   }
-  // }, [canvasRef]);
-
   const onFilterBtnRef = (style) => () => {
     setFilter(style);
   };
@@ -201,7 +159,6 @@ export const useWebcamCapture = (
   //Data url to show the pictures with the filter applied
   const onCapture = useCallback(() => {
     if (canvasRef) {
-      const ctx = canvasRef.getContext("2d");
       const width = canvasRef.width;
       const height = canvasRef.height;
 
@@ -214,10 +171,6 @@ export const useWebcamCapture = (
       tempCtx.drawImage(canvasRef, 0, 0, width, height);
 
       const data = tempCanvas.toDataURL("image/png");
-      // setPictures((prevPictures) => [
-      //   ...prevPictures,
-      //   { dataUri: data, title },
-      // ]);
       setPictures((prevPictures) =>
         Array.isArray(prevPictures)
           ? [...prevPictures, { dataUri: data, title }]

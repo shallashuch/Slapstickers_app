@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import "normalize.css/normalize.css";
 import { ThemeProvider } from "react-jss";
 import { BrowserRouter } from "react-router-dom";
@@ -8,16 +8,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { theme } from "./constants/theme";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+const container = document.getElementById("root");
+const root = createRoot(container);
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

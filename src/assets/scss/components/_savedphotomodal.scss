@@ -5,21 +5,26 @@
     justify-content: center;
     max-width: 80%;
     & .modal-content {
-      background-color: $text-color;
+      background-color: $azzurro;
       border-radius: 20px;
       width: fit-content;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
     & .modal-header {
       @include ModalHeader;
       min-width: 750px;
       & .modal-title {
-        @include ModalTitle;
+        & span {
+          @include ModalTitle;
+        }
+        &:hover {
+          transform: scale(1.1);
+          opacity: 0.9;
+        }
       }
       & button {
         @include ModalButton;
         &:hover {
-          background-color: darken($primary-color, 10%);
+          background-color: $secondary-color;
         }
       }
     }
@@ -27,18 +32,18 @@
       flex-wrap: wrap;
       @include ModalBody;
       & .Picture {
-        background: $secondary-color;
+        background: $background-color;
         padding: 10px;
         position: relative;
         display: inline-block;
         margin: 10px 20px;
         border-radius: 10px;
         position: relative;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         &:hover {
           transform: translateY(-5px);
-          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
         & img {
           height: 150px;
@@ -56,14 +61,14 @@
           width: 100%;
           margin: 5px;
           font-family: "Rampart One", sans-serif;
-          font-size: 18px;
+          font-size: 20px;
         }
-        & .download-btn {
+        & .share-btn {
           display: flex;
           align-items: center;
           justify-content: center;
           border: none;
-          background-color: $secondtext-color;
+          background-color: $rosso;
           height: 30px;
           width: 30px;
           position: absolute;
@@ -73,12 +78,12 @@
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
           transition: background-color 0.3s ease, transform 0.3s ease;
           &:hover {
-            background-color: darken($secondtext-color, 10%);
+            background-color: darken($viola, 10%);
             transform: scale(1.1);
           }
-          & .download-icon {
-            font-size: 20px;
-            color: #000000;
+          & .share-icon {
+            font-size: 15px;
+            color: $background-color;
           }
         }
       }
@@ -90,16 +95,16 @@
         font-size: 15px;
         font-weight: bold;
         color: #ffffff;
-        background-color: #4caf50;
+        background-color: $viola;
         border: none;
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         transition: all 0.3s ease;
 
         &:hover {
-          background-color: #45a049;
-          box-shadow: 0 6px 15px rgba(0, 255, 0, 0.4);
+          background-color: $viola;
+          box-shadow: 0 6px 15px $secondtext-color;
           transform: translateY(-3px);
         }
 
@@ -113,28 +118,16 @@
         }
       }
       .no-photo {
-        color: white;
+        color: $secondtext-color;
         text-align: center;
         font-size: 20px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 600;
         letter-spacing: 1px;
-        background: linear-gradient(45deg, #ff6f61, #ffca28);
-        -webkit-background-clip: text;
-        color: transparent;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        animation: fadeIn 1s ease-in-out;
-        &:hover {
-          transform: scale(1.1);
-          opacity: 0.9;
-        }
       }
     }
   }
 }
 
-/* Contenitore personalizzato per il checkbox */
 input[type="checkbox"] {
   position: absolute;
   width: 30px;
@@ -145,7 +138,7 @@ input[type="checkbox"] {
   -moz-appearance: none;
   appearance: none;
   background-color: #f1f1f1;
-  border: 2px solid #ddd;
+  border: 1px solid $rosso;
   border-radius: 5px;
   cursor: pointer;
   outline: none;
@@ -153,8 +146,8 @@ input[type="checkbox"] {
   z-index: 1000;
 
   &:checked {
-    background-color: #4caf50;
-    border-color: #4caf50;
+    background-color: $viola;
+    border-color: $viola;
   }
 
   &:checked::after {
@@ -170,32 +163,28 @@ input[type="checkbox"] {
     transition: all 0.3s ease;
   }
 
-  /* Effetto al passaggio del mouse */
   &:hover {
-    border-color: #4caf50;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); /* Effetto glow */
+    border-color: $viola;
+    box-shadow: 0 0 10px rgba(124, 0, 254, 0.3);
   }
 
-  /* Aggiungi un effetto "focus" quando selezionato */
   &:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 255, 0, 0.6); /* Effetto glow focus */
+    box-shadow: 0 0 5px rgba(124, 0, 254, 0.6);
   }
 
-  /* Aggiungi un'animazione di riempimento quando viene selezionato */
   &:checked {
     animation: fillCheckbox 0.4s forwards ease-in-out;
   }
 
-  /* Animazione di riempimento */
   @keyframes fillCheckbox {
     0% {
       background-color: transparent;
       border-color: #ddd;
     }
     100% {
-      background-color: #4caf50;
-      border-color: #4caf50;
+      background-color: $viola;
+      border-color: $viola;
     }
   }
 }
@@ -251,11 +240,11 @@ input[type="checkbox"] {
   }
 }
 
-@include media-878 {
+@include media-765 {
   .modal-photo {
     & .modal-dialog {
       & .modal-content {
-        max-width: 80%;
+        max-width: 90%;
       }
       & .modal-header {
         min-width: 100%;

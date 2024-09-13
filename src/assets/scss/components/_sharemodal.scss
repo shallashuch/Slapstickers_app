@@ -1,0 +1,27 @@
+.modal-share {
+  @include Modal;
+  & .modal-dialog {
+    display: flex;
+    justify-content: center;
+    & .modal-content {
+      background-color: $viola;
+      border-radius: 20px;
+      width: fit-content;
+    }
+    & .modal-header {
+      @include ModalHeader;
+      margin: 5px 0;
+      & button {
+        @include ModalButton;
+        font-size: 10px;
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+    & .modal-body {
+      @include ModalBody;
+      background-color: $viola;
+    }
+  }
+}

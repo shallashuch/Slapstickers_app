@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../assets/scss/App.scss";
 
 function GiveAName({ title, setTitle }) {

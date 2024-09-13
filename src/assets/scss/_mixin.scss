@@ -12,7 +12,7 @@
 }
 
 @mixin Modal {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   transition: all 0.3s ease-in-out;
 }
 
@@ -25,14 +25,20 @@
 
 @mixin ModalTitle {
   font-size: 27px;
-  color: $primary-color;
-  font-weight: bold;
-  font-family: "Montserrat", sans-serif;
+  color: $background-color;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: linear-gradient(45deg, $viola, $rosso);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: fadeIn 1s ease-in-out;
 }
 
 @mixin ModalButton {
   font-size: 20px;
-  background-color: $primary-color;
+  background-color: $background-color;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
@@ -42,7 +48,7 @@
 }
 
 @mixin ModalBody {
-  background-color: $text-color;
+  background-color: $azzurro;
   display: flex;
   justify-content: center;
 }
@@ -53,20 +59,20 @@
   }
 }
 
+@mixin media-1300 {
+  @media (max-width: 1300px) {
+    @content;
+  }
+}
+
 @mixin media-1024 {
   @media (max-width: 1024px) {
     @content;
   }
 }
 
-@mixin media-878 {
-  @media (max-width: 878px) {
+@mixin media-765 {
+  @media (max-width: 765px) {
     @content;
   }
 }
-
-// @mixin media-mobile {
-//   @media (max-width: 375px) {
-//     @content;
-//   }
-// }

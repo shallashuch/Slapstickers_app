@@ -6,10 +6,6 @@ import Photocamera from "../components/Photocamera";
 import LastPhotoModal from "../components/modals/LastPhotoModal";
 import "../assets/scss/App.scss";
 
-// import { ZoomMtg } from "@zoom/meetingsdk";
-
-// import { ShareSocial } from "react-share-social";
-
 function Homepage() {
   const [sticker, setSticker] = useState();
   const [title, setTitle] = useState("");
@@ -58,22 +54,12 @@ function Homepage() {
     setModalShow(!modalShow);
   };
 
-  // download image
-  const downloadImage = (imageSrc) => {
-    const link = document.createElement("a");
-    link.href = imageSrc;
-    link.download = "Myslap.jpg";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <main>
       <h1>
-        Try to slap yourself..
+        Select your sticker..
         <br />
-        ..and select your sticker!!
+        ..and try to slap yourself!!
       </h1>
 
       <Photocamera
@@ -99,7 +85,6 @@ function Homepage() {
         pictures={pictures}
         modalShow={modalShow}
         toggleModal={toggleModal}
-        downloadImage={downloadImage}
       />
       <SvgFilters />
     </main>

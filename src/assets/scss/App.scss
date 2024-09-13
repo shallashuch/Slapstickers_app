@@ -6,6 +6,7 @@
 @import "./components/stickers";
 @import "./components/gallery";
 @import "./components/lastphotomodal";
+@import "./components/sharemodal";
 
 body {
   background: $background-color;
@@ -13,9 +14,8 @@ body {
   font-family: "Montserrat", sans-serif;
   & .App {
     padding: 10px;
-    background: $primary-color;
+    background: $background-color;
     height: 100%;
-    overflow: hidden;
     position: relative;
     & nav {
       position: absolute;
@@ -25,7 +25,7 @@ body {
       margin: 10px 0px;
       & ul {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         margin: 0px 40px;
         & li {
           list-style-type: none;
@@ -34,7 +34,6 @@ body {
             margin-left: 50px;
             font-size: 20px;
             text-decoration: none;
-            font-family: "Montserrat", sans-serif;
           }
         }
       }
@@ -48,7 +47,6 @@ body {
       }
       & p {
         font-size: 18px;
-        font-family: "Montserrat", sans-serif;
         margin: 20px 10px;
       }
     }
@@ -88,14 +86,16 @@ body {
   animation: vibration 0.5s ease-in-out;
 }
 
-@include media-1024 {
+@include media-1300 {
   body {
     & .App {
       & nav {
         & ul {
+          margin: 0px 10px;
           & li {
             & a {
-              font-size: 17px;
+              font-size: 20px;
+              margin-left: 30px;
             }
           }
         }
@@ -105,38 +105,35 @@ body {
           font-size: 20px;
         }
         & p {
-          font-size: 17px;
+          font-size: 20px;
         }
       }
       & main {
-        align-items: start;
         & h1 {
-          font-size: 17px;
-          top: 40px;
-          left: 0px;
+          font-size: 20px;
+          top: 45px;
         }
       }
     }
   }
 }
 
-@include media-878 {
+@include media-765 {
   body {
     & .App {
       & nav {
         & ul {
-          margin: 0px 10px;
           & li {
             & a {
-              font-size: 14px;
-              margin-left: 30px;
+              font-size: 15px;
+              margin-left: 15px;
             }
           }
         }
       }
       & .Header {
         & h1 {
-          font-size: 18px;
+          font-size: 15px;
         }
         & p {
           font-size: 15px;
@@ -145,6 +142,7 @@ body {
       & main {
         & h1 {
           font-size: 15px;
+          top: 45px;
         }
       }
     }

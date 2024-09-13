@@ -15,31 +15,33 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
     & .folder-icon {
       font-size: 100px;
-      color: black;
+      color: $secondtext-color;
       transition: transform 0.3s ease, color 0.3s ease;
       &:hover {
-        color: lighten(blue, 10%);
+        color: $rosso;
       }
     }
     & .numberOfPhoto {
-      background-color: $secondtext-color;
+      background-color: $text-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 30px;
       height: 30px;
       border-radius: 100%;
-      text-align: center;
       position: absolute;
       top: 0;
       left: 80px;
+      color: $secondary-color;
       line-height: 30px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, background-color 0.3s ease;
       &:hover {
         transform: scale(1.2);
-        background-color: darken(pink, 10%);
+        background-color: $rosso;
       }
     }
     & .Picture {
