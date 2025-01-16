@@ -37,14 +37,15 @@ function Stickers(props) {
     <div className="Stickers">
       <div className="availableStickers-container">
         <div className="availableStickers">
-          <button className="btn-remove" onClick={props.removeSticker}>
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
           {stickers.map((sticker, index) => (
             <button key={index} onClick={() => props.setSticker(sticker)}>
               <img src={sticker.url} alt={`Sticker ${index + 1}`} />
             </button>
           ))}
+
+          <button className="btn-remove" onClick={props.removeSticker}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
         </div>
       </div>
     </div>

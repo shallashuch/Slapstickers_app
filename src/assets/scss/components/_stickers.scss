@@ -3,10 +3,9 @@
     & .availableStickers {
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-end;
+      align-items: center;
       width: 100%;
-      background-color: $secondary-color;
-      padding: 10px;
+      background-color: rgb(223, 222, 222);
       border-radius: 20px;
       margin-top: 10px;
       & button {
@@ -14,12 +13,11 @@
         background: none;
         cursor: pointer;
         border-radius: 20px;
-        margin: 10px 10px;
         padding: 5px;
         border: none;
         @include animationIcon;
         & img {
-          height: 50px;
+          height: 40px;
         }
       }
       & button:hover {
@@ -27,11 +25,15 @@
         margin: 20 0px;
       }
       & .btn-remove {
-        background-color: $secondary-color;
+        background-color: $secondtext-color;
+        color: #fff;
         padding: 5px;
         border-radius: 20px;
         border: none;
         font-size: 30px;
+        display: flex;
+        margin-right: 10px;
+        z-index: 101;
       }
     }
   }
@@ -40,7 +42,6 @@
 @include media-1300 {
   .Stickers {
     & .availableStickers-container {
-      margin-bottom: 40px;
       & .availableStickers {
         & button {
           & img {

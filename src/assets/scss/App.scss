@@ -9,58 +9,184 @@
 @import "./components/sharemodal";
 
 body {
-  background: $background-color;
   color: $text-color;
-  font-family: "Montserrat", sans-serif;
-  & .App {
-    padding: 10px;
-    background: $background-color;
-    height: 100%;
-    position: relative;
-    & nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100vw;
-      margin: 10px 0px;
-      & ul {
-        display: flex;
-        justify-content: flex-end;
-        margin: 0px 40px;
-        & li {
-          list-style-type: none;
-          & a {
-            color: $secondtext-color;
-            margin-left: 50px;
-            font-size: 20px;
-            text-decoration: none;
-          }
+  font-family: "Special Elite", sans-serif;
+
+  .App {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../linesBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+
+    .Header {
+      margin-top: 20px;
+      .header-container {
+        .app-company {
+          color: $secondary-color;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+          font-size: 50px;
+          font-family: "Kablammo", sans-serif;
+          text-align: center;
+          margin-bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 5px 10px;
         }
       }
     }
-    & .Header {
-      & h1 {
-        color: $secondtext-color;
-        font-size: 25px;
-        font-family: "Rampart One", sans-serif;
-        text-align: center;
-      }
-      & p {
-        font-size: 18px;
-        margin: 20px 10px;
-      }
-    }
-    & main {
-      display: flex;
-      justify-content: center;
+
+    .app-container {
+      height: 80%;
+      width: 60%;
       position: relative;
-      align-items: center;
-      height: 100vh;
-      & h1 {
-        font-size: 20px;
+      background-image: url("../backgroundImg.jpeg");
+      background-size: cover;
+      background-position: center;
+
+      .band-icon {
         position: absolute;
-        top: 100px;
-        left: 80px;
+        height: 200px;
+        width: 300px;
+      }
+
+      .top {
+        top: -15%;
+        left: -15%;
+        transform: rotate(-40deg);
+        z-index: 99;
+      }
+
+      .bottom {
+        bottom: -15%;
+        right: -15%;
+        transform: rotate(-30deg);
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+
+        .main-container {
+          height: 100%;
+          width: 90%;
+          background-color: $bg-color3;
+          margin-top: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 20px;
+
+          .title {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 2s ease, transform 2s ease;
+
+            .text-title {
+              font-size: 20px;
+              letter-spacing: 1px;
+            }
+
+            &.visible {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .content-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            align-items: center;
+            height: 80%;
+
+            .photocamera-wrapper {
+              font-size: 35px;
+
+              .text {
+                margin: 20px 0;
+                opacity: 0;
+                letter-spacing: 2px;
+                transform: translateX(-100px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+
+                &.visible {
+                  opacity: 1;
+                  transform: translateX(0);
+                }
+
+                .highlighted-text {
+                  color: $secondtext-color;
+                }
+              }
+            }
+
+            .camera-icon-wrapper {
+              display: flex;
+              justify-content: center;
+
+              .camera-icon {
+                font-size: 100px;
+                color: $secondtext-color;
+                transition: transform 0.3s ease, color 0.3s ease;
+                transition: transform 0.6s ease-in-out;
+                cursor: pointer;
+
+                &.rotate {
+                  animation: spin 2s ease-in-out 4;
+                }
+
+                &:hover {
+                  color: $rosso;
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+
+          .gallery-wrapper {
+            position: absolute;
+            bottom: -15%;
+            right: -25%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+          }
+
+          .video-wrapper {
+            width: 100%;
+            height: 100%;
+
+            .sticker-go-back {
+              height: 20px;
+              width: 20px;
+              cursor: pointer;
+              color: $bg-color2;
+              transition: transform 0.3s ease;
+              position: absolute;
+              left: 8%;
+              top: 10%;
+              z-index: 100;
+
+              &.jump-animation {
+                animation: jump 1s ease-in-out;
+              }
+
+              &:hover {
+                color: $rosso;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -82,36 +208,84 @@ body {
   }
 }
 
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}
+
 .vibrate {
   animation: vibration 0.5s ease-in-out;
 }
 
-@include media-1300 {
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+
+@include media-above-1500 {
   body {
-    & .App {
-      & nav {
-        & ul {
-          margin: 0px 10px;
-          & li {
-            & a {
-              font-size: 20px;
-              margin-left: 30px;
-            }
+    .App {
+      .Header {
+        .header-container {
+          .app-company {
+            font-size: 25px;
           }
         }
       }
-      & .Header {
-        & h1 {
-          font-size: 20px;
+      .app-container {
+        .top {
+          top: -10%;
+          left: -10%;
         }
-        & p {
-          font-size: 20px;
+
+        .bottom {
+          bottom: -10%;
+          right: -10%;
         }
       }
-      & main {
-        & h1 {
-          font-size: 20px;
-          top: 45px;
+    }
+  }
+}
+
+@include media-1300 {
+  body {
+    .App {
+      .Header {
+        .header-container {
+          .app-company {
+            font-size: 25px;
+          }
+        }
+      }
+      .app-container {
+        .top {
+          top: -10%;
+          left: -20%;
+        }
+
+        .bottom {
+          bottom: -10%;
+          right: -20%;
+        }
+        main {
+          .title {
+            font-size: 25px;
+          }
         }
       }
     }
@@ -120,29 +294,59 @@ body {
 
 @include media-765 {
   body {
-    & .App {
-      & nav {
-        & ul {
-          & li {
-            & a {
-              font-size: 15px;
-              margin-left: 15px;
-            }
+    .App {
+      .Header {
+        .header-container {
+          .app-company {
+            font-size: 25px;
           }
         }
       }
-      & .Header {
-        & h1 {
-          font-size: 15px;
+      .app-container {
+        height: 60%;
+        width: 80%;
+        .top {
+          top: -10%;
+          left: -30%;
+          transform: rotate(-40deg);
+          z-index: 99;
         }
-        & p {
-          font-size: 15px;
+
+        .bottom {
+          bottom: -10%;
+          right: -25%;
+          transform: rotate(-30deg);
         }
-      }
-      & main {
-        & h1 {
-          font-size: 15px;
-          top: 45px;
+
+        main {
+          .main-container {
+            .title {
+              .text-title {
+                font-size: 15px;
+              }
+            }
+
+            .gallery-wrapper {
+              bottom: -30%;
+              right: -0;
+            }
+
+            .content-wrapper {
+              gap: 40px;
+
+              .photocamera-wrapper {
+                .text {
+                  font-size: 20px;
+                }
+              }
+            }
+
+            .camera-icon-wrapper {
+              .camera-icon {
+                font-size: 60px !important;
+              }
+            }
+          }
         }
       }
     }

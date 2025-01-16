@@ -28,10 +28,10 @@ function CapturedPhotoModal(props) {
         </div>
         <div className="modal-buttons">
           <button onClick={props.savePhoto} className="btn-save">
-            Save
+            💾 Save
           </button>
           <button onClick={props.cancelPhoto} className="btn-cancel">
-            Retake
+            📸 Retake
           </button>
         </div>
       </Modal.Body>

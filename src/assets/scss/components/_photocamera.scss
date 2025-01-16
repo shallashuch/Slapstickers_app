@@ -1,26 +1,75 @@
 .Photocamera {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100%;
+
+  .sticker-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    padding-top: 10px;
+    z-index: 999;
+
+    .sticker-title {
+      margin: 0;
+      font-size: 20px;
+
+      &.slide-in {
+        animation: slide-in 0.5s forwards;
+      }
+
+      &.slide-out {
+        display: none;
+      }
+    }
+
+    .stickers-wrapper {
+      &.slide-in-sticker {
+        animation: slide-in-sticker 0.5s forwards;
+      }
+    }
+
+    .sticker-icon {
+      height: 20px;
+      width: 20px;
+      cursor: pointer;
+      color: $secondtext-color;
+      transition: transform 0.3s ease;
+
+      &.jump-animation {
+        animation: jump 1s ease-in-out;
+      }
+
+      &:hover {
+        color: $rosso;
+      }
+    }
+  }
+
   .photocamera-container {
-    background: $secondary-color;
-    border-radius: 20px;
-    padding: 30px 20px;
-    max-width: 45vw;
+    height: 100%;
     .video-container {
       position: relative;
-      & video {
+      height: 100%;
+
+      video {
         display: none;
         width: 100%;
-        height: auto;
+        height: 100%;
       }
-      & canvas {
+
+      canvas {
         width: 100%;
-        height: auto;
-        border: 15px solid $azzurro;
+        height: 100%;
+        border: 15px solid $secondtext-color;
         border-radius: 10px;
       }
-      & .btn-filters-container {
+
+      .btn-filters-container {
         position: absolute;
         left: 25px;
         top: 0px;
@@ -29,7 +78,8 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-        & .btn-filters {
+
+        .btn-filters {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -40,11 +90,13 @@
           font-size: 15px;
           @include animationIcon;
         }
-        & .btn-filters:hover {
+
+        .btn-filters:hover {
           transform: scale(1.3);
           margin: 20 0px;
         }
       }
+
       .btn-makePhoto-container {
         position: absolute;
         right: 25px;
@@ -53,6 +105,7 @@
         top: 0px;
         display: flex;
         align-items: center;
+
         .makePhoto-item-container {
           background-color: #ffff;
           width: 60px;
@@ -65,20 +118,24 @@
           transition: all 0.3s ease;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1),
             0 2px 4px rgba(0, 0, 0, 0.2);
+
           &:hover {
             background-color: #f0f0f0;
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
           }
+
           &:active {
             transform: scale(0.95);
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
           }
+
           .makePhoto-item {
             height: 50px;
             width: 50px;
             color: $secondtext-color;
             transition: color 0.3s ease;
+
             &:hover {
               color: $rosso;
               animation: pulse 1.5s infinite;
@@ -87,6 +144,28 @@
         }
       }
     }
+  }
+}
+
+@keyframes slide-in-sticker {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -102,6 +181,22 @@
   100% {
     transform: scale(1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
   }
 }
 
@@ -137,7 +232,6 @@
   .Photocamera {
     .photocamera-container {
       max-width: 100%;
-      margin-top: 550px;
       .video-container {
         & .btn-filters-container {
           & .btn-filters {
@@ -165,7 +259,6 @@
 @include media-1024 {
   .Photocamera {
     .photocamera-container {
-      margin-top: 350px;
       .video-container {
         & .btn-filters-container {
           & .btn-filters {
@@ -193,7 +286,6 @@
 @include media-765 {
   .Photocamera {
     .photocamera-container {
-      margin-top: 250px;
       .video-container {
         & .btn-filters-container {
           & .btn-filters {
@@ -204,6 +296,10 @@
           }
         }
       }
+    }
+
+    .sticker-container {
+      width: 80%;
     }
   }
 }

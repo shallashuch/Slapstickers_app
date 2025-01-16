@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/scss/App.scss";
-import { faXmark, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faXmark,
+  faUser,
+  faFaceSmileWink,
+  faArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import FilterButton from "./partials/FilterButton";
 import Stickers from "./Stickers";
@@ -17,8 +22,64 @@ function Photocamera(props) {
     removeSticker,
   } = props;
 
+  const [showStickers, setShowStickers] = useState(false);
+  const [animateIcon, setAnimateIcon] = useState(false);
+
+  //Handle stickers visibility
+  const handleStickerIconClick = () => {
+    setShowStickers(!showStickers);
+  };
+
+  // Animate the sticker icon
+  useEffect(() => {
+    if (!showStickers) {
+      const interval = setInterval(() => {
+        setAnimateIcon(true);
+        setTimeout(() => setAnimateIcon(false), 2000);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [showStickers]);
+
   return (
     <div className="Photocamera">
+      <div className="sticker-container">
+        {!showStickers && (
+          <>
+            <p className={`sticker-title ${!showStickers ? "slide-in" : ""}`}>
+              Select your sticker here
+            </p>
+            <FontAwesomeIcon
+              icon={faFaceSmileWink}
+              onClick={handleStickerIconClick}
+              className={`sticker-icon ${animateIcon ? "jump-animation" : ""}`}
+            />
+          </>
+        )}
+
+        {showStickers && (
+          <FontAwesomeIcon
+            icon={faArrowLeft}
+            onClick={handleStickerIconClick}
+            className="sticker-icon"
+          />
+        )}
+
+        <div
+          className={`stickers-wrapper ${
+            showStickers ? "slide-in-sticker" : ""
+          }`}
+        >
+          {showStickers && (
+            <Stickers
+              sticker={sticker}
+              setSticker={setSticker}
+              removeSticker={removeSticker}
+            />
+          )}
+        </div>
+      </div>
+
       <div className="photocamera-container">
         <div className="video-container">
           <video ref={handleVideoRef} />
@@ -61,6 +122,7 @@ function Photocamera(props) {
               icon={faXmark}
             />
           </div>
+
           <div className="btn-makePhoto-container">
             <div className="makePhoto-item-container">
               <FontAwesomeIcon
@@ -72,11 +134,6 @@ function Photocamera(props) {
           </div>
         </div>
       </div>
-      <Stickers
-        sticker={sticker}
-        setSticker={setSticker}
-        removeSticker={removeSticker}
-      />
     </div>
   );
 }

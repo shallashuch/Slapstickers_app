@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import "../assets/scss/App.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFolder,
   faDownload,
   faShare,
+  faPhotoFilm,
 } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import { ShareSocial } from "react-share-social";
 import axios from "axios";
 
+// Styles for ShareSocial modal
 const style = {
   root: {
-    backgroundColor: "#7c00fe",
+    backgroundColor: "#ded9ef",
     padding: 0,
     display: "flex",
     alignItems: "center",
@@ -40,7 +41,7 @@ function Gallery({ pictures, modalShow, toggleModal }) {
     }
   }, [pictures.length]);
 
-  // download image
+  // Download image
   const downloadImage = (imageSrc) => {
     const link = document.createElement("a");
     link.href = imageSrc;
@@ -68,7 +69,7 @@ function Gallery({ pictures, modalShow, toggleModal }) {
     });
   };
 
-  // upload img on cloudinary to have a public url
+  // Upload img on cloudinary to have a public url
   const uploadImage = async (imageSrc) => {
     try {
       const formData = new FormData();
@@ -84,6 +85,7 @@ function Gallery({ pictures, modalShow, toggleModal }) {
     }
   };
 
+  // Upload all images and set the valid image URLs.
   useEffect(() => {
     const uploadAllImages = async () => {
       const urls = await Promise.all(
@@ -105,7 +107,7 @@ function Gallery({ pictures, modalShow, toggleModal }) {
     <div className="Gallery">
       <div className="photo-container" onClick={() => toggleModal(true)}>
         <FontAwesomeIcon
-          icon={faFolder}
+          icon={faPhotoFilm}
           className={`folder-icon ${animateClass}`}
         />
         <div className="numberOfPhoto">{pictures.length}</div>
@@ -119,10 +121,9 @@ function Gallery({ pictures, modalShow, toggleModal }) {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>
-            📸 <span>Your Photo Gallery</span> 📸
-          </Modal.Title>
+          <Modal.Title> Your Photo Gallery</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           {pictures.length > 0 ? (
             <>
@@ -145,6 +146,7 @@ function Gallery({ pictures, modalShow, toggleModal }) {
                   >
                     <FontAwesomeIcon className="share-icon" icon={faShare} />
                   </button>
+
                   <Modal
                     show={shareModalIndex === index}
                     onHide={() => setShareModalIndex(null)}
@@ -153,6 +155,9 @@ function Gallery({ pictures, modalShow, toggleModal }) {
                   >
                     <Modal.Header closeButton></Modal.Header>
                     <Modal.Body>
+                      <p>
+                        Share the photo <br /> with your friends
+                      </p>
                       {imageUrls[index] && (
                         <ShareSocial
                           url={imageUrls[index]}

@@ -4,7 +4,7 @@ import "../assets/scss/App.scss";
 function GiveAName({ title, setTitle }) {
   return (
     <div className="GiveAName">
-      <p>Give it a name</p>
+      <p className="title">Give it a name</p>
       <input
         type="text"
         value={title}
